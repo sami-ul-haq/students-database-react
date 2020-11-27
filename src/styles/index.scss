@@ -1,0 +1,14 @@
+// Theming Bootstrap
+$theme-colors: (
+  "primary": #d00000,
+);
+
+$card-border-width: 0;
+$body-bg: #f48c06;
+$font-family-base: "Open Sans";
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.card {
+  position: relative;
+}
