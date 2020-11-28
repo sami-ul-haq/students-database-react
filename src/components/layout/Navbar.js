@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useFirebase } from "react-redux-firebase";
 
 const Navbar = () => {
+    const firebase = useFirebase();
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light bg-white">
@@ -27,7 +29,7 @@ const Navbar = () => {
                                 </a>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" href="!#">Profile</a>
-                                    <a className="dropdown-item" href="!#">Logout</a>
+                                    <a className="dropdown-item" href="!#" onClick={() => firebase.logout()}>Logout</a>
                                     <div className="dropdown-divider"></div>
                                     <a className="dropdown-item" href="!#">Ads</a>
                                 </div>
