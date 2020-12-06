@@ -20,23 +20,23 @@ const StudentForm = () => {
   });
 
   useEffect(() => {
+    const loadStudent = async () => {
+      try {
+        const result = await docRef.get();
+        if (result.exists) {
+          setStudent(result.data());
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.log("Error getting document:", error);
+      }
+    };
+
     if (id) {
       loadStudent();
     }
-  });
-
-  const loadStudent = async () => {
-    try {
-      const result = await docRef.get();
-      if (result.exists) {
-        setStudent(result.data());
-      } else {
-        console.log("No such document!");
-      }
-    } catch (error) {
-      console.log("Error getting document:", error);
-    }
-  };
+  }, [id]);
 
   const onInputChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
