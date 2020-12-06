@@ -36,6 +36,7 @@ const StudentForm = () => {
     if (id) {
       loadStudent();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const onInputChange = (e) => {
