@@ -1,15 +1,17 @@
-import React from 'react';
-import Navbar from './components/layout/Navbar';
-import Students from './components/students/Students';
-import './styles/App.scss';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Student from './components/students/Student';
-import StudentForm from './components/students/StudentForm';
+import React from "react";
+import Navbar from "./components/layout/Navbar";
+import Students from "./components/students/Students";
+import "./styles/App.scss";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Student from "./components/students/Student";
+import StudentForm from "./components/students/StudentForm";
 import { Provider } from "react-redux";
 import store, { rrfProps } from "./store";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import Login from "./components/pages/Login";
-import PrivateRoute from './components/routes/PrivateRoute';
+import PrivateRoute from "./components/routes/PrivateRoute";
+import Signup from "./components/pages/Signup";
+import NotFound from "./components/pages/NotFound";
 
 const App = () => {
   return (
@@ -21,13 +23,19 @@ const App = () => {
             <PrivateRoute exact path="/" component={Students} />
             <PrivateRoute exact path="/student/:id" component={Student} />
             {/* qustion mark added so component will render with or without id */}
-            <PrivateRoute exact path="/studentForm/:id?" component={StudentForm} />
+            <PrivateRoute
+              exact
+              path="/studentForm/:id?"
+              component={StudentForm}
+            />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
       </ReactReduxFirebaseProvider>
     </Provider>
   );
-}
+};
 
 export default App;
