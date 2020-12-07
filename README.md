@@ -4,6 +4,7 @@
 ## With Signin & Signup Functionality Using React-Redux-Firebase
 
 ### Technology Used: React, Redux, Router , Hooks, Firebase(For Authentication), Bootstrap & SASS
+### Deployed On: Netlify
 
 
 ### Demo [Click Here](https://students-database.netlify.app/)
